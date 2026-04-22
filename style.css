@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Quicksand', system-ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(50deg, #ff01aa 0%, #eed398 100%);
+    color: #f0e6f5;
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* soft overlay for depth */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 70% 20%, rgba(200, 160, 220, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, pink, #f4f6f7, #f1c0a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgb(250, 243, 243);
+    text-shadow: 0 0 25px rgba(200, 150, 230, 0.5);
+    animation: glowPulse 3s infinite;
+}
+
+@keyframes glowPulse {
+    0% { filter: drop-shadow(0 0 5px #b38fce); }
+    50% { filter: drop-shadow(0 0 25px #9f7ab3); }
+    100% { filter: drop-shadow(0 0 5px #b38fce); }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #111111;
+    margin: 1rem 0 1.5rem;
+    font-weight: 500;
+}
+
+#countdown {
+    font-size: 1.9rem;
+    font-weight: 600;
+    background: rgba(253, 253, 253, 0.7);
+    display: inline-block;
+    padding: 0.7rem 2.2rem;
+    border-radius: 60px;
+    backdrop-filter: blur(5px);
+    border: 2px solid #a78ab3;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    color:  #141414;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e2a1d3, #7a9eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+
+.photo-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.25s ease;
+    border: 4px solid #3a2a4a;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03) rotate(0.8deg);
+    box-shadow: 0 22px 35px rgba(160, 120, 180, 0.5);
+    border-color: #b392c0;
+}
+.greetings-section{
+    color: white;
+    box-shadow: 0 20px 30px rgba(255, 0, 255, 0.938);
+}
+/* sections with background images */
+.section-with-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem 1.5rem;
+    margin: 3rem 0;
+    border-color: #fcfeff;
+    border-radius: 70px 70px 40px 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(255, 0, 255, 0.938);
+}
+
+.section-overlay {
+    background: rgba(255, 254, 255, 0.966);
+    backdrop-filter: blur(4px);
+    padding: 2rem;
+    border-radius: 60px;
+}
+
+.fierce-section {
+    background-image: url('images/fierce-bg.jpg'); /* replace with your own */
+    /* fallback gradient */
+    background: linear-gradient(145deg, #2b1f38, #1f2b3a);
+}
+
+.greetings-section {
+    background-image: url('images/warm-wishes-bg.jpg'); /* replace with your own */
+    background: linear-gradient(145deg, #2c2338, #232f3f);
+}
+
+.fierce-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.message {
+    background: rgba(252, 251, 253, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 2.5rem;
+    border-radius: 60px 60px 60px 20px;
+    max-width: 800px;
+    margin: 3rem auto;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    box-shadow: 0 25px 35px #fa07c5;
+    border: 2px solid #f804bbd0;
+    color: #0c0c0c;
+    position: relative;
+    z-index: 2;
+}
+
+.signature {
+    margin-top: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    text-align: right;
+    color: #cfaad9;
+    font-size: 1.5rem;
+}
+
+.wish-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.wish-card {
+    background: rgb(250, 248, 250);
+    backdrop-filter: blur(4px);
+    border-radius: 2rem 2rem 2rem 0.8rem;
+    padding: 1.8rem 1.5rem;
+    max-width: 300px;
+    min-width: 250px;
+    flex: 1 1 240px;
+    box-shadow: 0 18px 28px rgba(248, 247, 247, 0.5);
+    border: 2px solid #f8dd84;
+    transition: 0.2s;
+    color: #faf7f7;
+}
+
+
+.wish-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #111111;
+}
+
+.wish-author {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #131213;
+    text-align: right;
+}
+
+.wish-photo {
+    margin-top: 1rem;
+    border-radius: 40px;
+    overflow: hidden;
+    max-width: 110px;
+    border: 3px solid #a07cb3;
+}
+
+.wish-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.balloons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 3rem 0 1rem;
+    opacity: 0.8;
+}
+
+.balloon {
+    width: 45px;
+    height: 58px;
+    background: #b48ac4;
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: inset -6px -10px 0 #7e5d93;
+    position: relative;
+    animation: float 4.5s infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 35px;
+    background: #a583b0;
+    bottom: -30px;
+    left: 21px;
+}
+
+.balloon:nth-child(2) {
+    background: #7f9eb5;
+    animation-delay: 0.8s;
+}
+.balloon:nth-child(3) {
+    background: #ccb07c;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* floating message bubble */
+.floating-message {
+    position: fixed;
+    background: #2b1c33;
+    color: #f0d5ff;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    border: 2px solid #a987bd;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatUp 8s ease-out forwards;
+    white-space: nowrap;
+    max-width: 320px;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-40px); }
+}
+
+footer {
+    text-align: center;
+    margin: 2rem 0 0.5rem;
+    color: #ab8ebf;
+    font-size: 1.1rem;
+}
